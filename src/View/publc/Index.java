@@ -13,7 +13,6 @@ public class Index {
     private Index() {
         frame = new JFrame("E-wallet");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setLayout(new FlowLayout(FlowLayout.CENTER));
         frame.setLayout(new BorderLayout());
 
         HashMap<String, Integer> size = Utils.getSizeOfScreen(0.40);
@@ -30,10 +29,10 @@ public class Index {
     }
 
     public void setContainer(JPanel component) {
-        frame.getContentPane().removeAll(); // Menghapus konten sebelumnya
+        frame.getContentPane().removeAll();
         frame.add(component, BorderLayout.CENTER);
-//        frame.revalidate(); // Me-revalidate frame untuk menampilkan perubahan
-        frame.repaint(); // Me-repaint frame untuk menghindari artefak render
+//        frame.revalidate();
+//        frame.repaint();
         frame.setVisible(true);
     }
 }

@@ -8,11 +8,6 @@ import java.awt.*;
 
 public class Dashboard {
     public JPanel getContainer(){
-
-//        JPanel bluePanel = new JPanel();
-//        bluePanel.setPreferredSize(new Dimension(80, 80));
-//        bluePanel.setBackground(Color.RED);
-
         JPanel container = new JPanel( new GridBagLayout() );
 
         container.setLayout( new GridLayout(3, 1) );
@@ -22,9 +17,7 @@ public class Dashboard {
 
         JPanel wrapPilihan = new JPanel( new GridBagLayout() );
 
-        wrapPilihan.setLayout( new GridLayout(1, 5) );
-        // set margin
-//        divLeft.setBorder(new EmptyBorder(10, 10, 10, 10));
+        wrapPilihan.setLayout( new GridLayout(3, 5) );
 
         JButton btnTransfer = new JButton("Transfer");
         moveToTransfer(btnTransfer);
