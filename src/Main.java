@@ -65,7 +65,6 @@ public class Main {
                 }else{
                     menu1.setColor(new Color(0, 157, 247));
                 }
-//                menu1.reload();
             });
         }
     }
