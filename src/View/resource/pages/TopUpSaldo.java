@@ -20,12 +20,14 @@ public class TopUpSaldo {
         JButton btnTopUpSaldo = Button.btn("Top up saldo", 233, 233, 233);
         TopUpSaldo(btnTopUpSaldo);
 
+        JButton btnBack = Button.btn("Logout", 233, 233, 233);
+        back(btnBack);
+
         form.setLayout( new GridLayout(3, 1) );
         form.add(jumlah);
 
-        JPanel wrapBtn = new JPanel( new GridBagLayout() );
-
-        form.add(wrapBtn);
+        form.add(btnTopUpSaldo);
+        form.add(btnBack);
 
         return form;
     }
@@ -36,6 +38,12 @@ public class TopUpSaldo {
 
             // nilai password
             System.out.println( Input.getInputValue(jumlah) );
+        });
+    }
+
+    private void back(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("dashboard");
         });
     }
 }

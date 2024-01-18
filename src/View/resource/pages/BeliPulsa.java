@@ -21,13 +21,15 @@ public class BeliPulsa {
         JButton btnBeliPulsa = Button.btn("BeliPulsa", 233, 233, 233);
         BeliPulsa(btnBeliPulsa);
 
+        JButton btnBack = Button.btn("Logout", 233, 233, 233);
+        back(btnBack);
+
         form.setLayout( new GridLayout(3, 1) );
         form.add(nomer);
         form.add(jumlah);
 
-        JPanel wrapBtn = new JPanel( new GridBagLayout() );
-
-        form.add(wrapBtn);
+        form.add(btnBeliPulsa);
+        form.add(btnBack);
 
         return form;
     }
@@ -41,6 +43,13 @@ public class BeliPulsa {
 
             // nilai password
             System.out.println( Input.getInputValue(jumlah) );
+        });
+    }
+
+
+    private void back(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("dashboard");
         });
     }
 }

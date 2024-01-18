@@ -25,8 +25,16 @@ public class Dashboard {
 //        divLeft.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         JButton btnTransfer = new JButton("Transfer");
+        moveToTransfer(btnTransfer);
+
         JButton btnBeliPulsa = new JButton("Beli pulsa");
+        moveToBeliPulsa(btnBeliPulsa);
+
         JButton btnTopUpSaldo = new JButton("Top up saldo");
+        moveToTopUpSaldo(btnTopUpSaldo);
+
+        JButton btnLogout = new JButton("Logout");
+        logout(btnLogout);
 
         wrapPilihan.setLayout( new GridLayout(1, 3) );
         wrapPilihan.add(btnTransfer);
@@ -36,6 +44,7 @@ public class Dashboard {
         container.add(username);
         container.add(saldo);
         container.add(wrapPilihan);
+        container.add(btnLogout);
 
         return container;
     }
@@ -64,10 +73,3 @@ public class Dashboard {
         });
     }
 }
-
-
-
-// username
-// transfer -> milih user
-// pulsa -> form nomer karo jumlah
-// top up saldo

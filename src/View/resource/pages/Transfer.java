@@ -22,13 +22,15 @@ public class Transfer {
         JButton btnTransfer = Button.btn("Transfer", 233, 233, 233);
         Transfer(btnTransfer);
 
+        JButton btnBack = Button.btn("Logout", 233, 233, 233);
+        back(btnBack);
+
         form.setLayout( new GridLayout(3, 1) );
         form.add(username);
         form.add(jumlah);
 
-        JPanel wrapBtn = new JPanel( new GridBagLayout() );
-
-        form.add(wrapBtn);
+        form.add(btnTransfer);
+        form.add(btnBack);
 
         return form;
     }
@@ -39,6 +41,12 @@ public class Transfer {
 
             // nilai password
             System.out.println( Input.getInputValue(jumlah) );
+        });
+    }
+
+    private void back(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("dashboard");
         });
     }
 }
