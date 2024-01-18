@@ -3,25 +3,30 @@ package View.publc;
 import javax.swing.*;
 import java.awt.*;
 
-public class Index{
-    public index() {
-        SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("E-wallet");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+public class Index {
+    private static Index instance;
+    private JFrame frame;
 
-//            JPanel mainPanel = new JPanel(new CardLayout());
-//            Page1 page1 = new Page1(mainPanel);
-//            Page2 page2 = new Page2(mainPanel);
+    private Index() {
+        frame = new JFrame("E-wallet");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout(FlowLayout.CENTER));
+        frame.setSize(800, 500);
+        frame.setLocationRelativeTo(null);
+    }
 
-//            mainPanel.add(page1, Page1.NAME);
-//            mainPanel.add(page2, Page2.NAME);
+    public static synchronized Index getInstance() {
+        if (instance == null) {
+            instance = new Index();
+        }
+        return instance;
+    }
 
-
-            frame.add(mainPanel);
-
-            frame.setSize(300, 200);
-            frame.setLocationRelativeTo(null);
-            frame.setVisible(true);
-        });
+    public void setComponent(JPanel component) {
+        frame.getContentPane().removeAll(); // Menghapus konten sebelumnya
+        frame.add(component, BorderLayout.CENTER);
+        frame.revalidate(); // Me-revalidate frame untuk menampilkan perubahan
+        frame.repaint(); // Me-repaint frame untuk menghindari artefak render
+        frame.setVisible(true);
     }
 }

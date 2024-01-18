@@ -1,10 +1,34 @@
 package View.resource.pages;
 
+import View.ViewFactory;
+import View.resource.component.Button;
 import View.resource.layout.MainFrame;
 
-public class Register extends MainFrame {
-    public void view(){
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionListener;
 
+public class Register extends MainFrame {
+    public JPanel getComponent(){
+
+        JPanel bluePanel = new JPanel();
+        bluePanel.setPreferredSize(new Dimension(50, 50));
+        bluePanel.setBackground(Color.BLUE);
+
+        JButton btn = Button.btn();
+        d(btn);
+
+        // Mengatur layout manager dan menambahkan tombol ke panel
+        bluePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); // Center alignment
+        bluePanel.add(btn);
+
+        return bluePanel;
+    }
+
+    private void d(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("dashboard");
+        });
     }
 
 }

@@ -9,7 +9,5 @@ public abstract class MainFrame extends JFrame {
         double percentage = 0.95;
         int widthInPixels = (int) (screenSize.getWidth() * percentage);
         int heightInPixels = (int) (screenSize.getHeight() * percentage);
-
-
     }
 }
