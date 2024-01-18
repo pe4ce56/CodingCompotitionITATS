@@ -1,5 +1,6 @@
 package View.resource.pages;
 
+import Service.UserService;
 import View.ViewFactory;
 
 import javax.swing.*;
@@ -16,11 +17,12 @@ public class Dashboard {
 
         container.setLayout( new GridLayout(3, 1) );
 
-        JLabel username = new JLabel("Username : Masih kosong" );
-        JLabel saldo = new JLabel("Saldo : 000000");
+        JLabel username = new JLabel("Username : " + UserService.getInstance().getUserActive().getUsername());
+        JLabel saldo = new JLabel("Saldo : " + UserService.getInstance().getUserActive().getBalance());
 
         JPanel wrapPilihan = new JPanel( new GridBagLayout() );
 
+        wrapPilihan.setLayout( new GridLayout(1, 5) );
         // set margin
 //        divLeft.setBorder(new EmptyBorder(10, 10, 10, 10));
 
@@ -28,18 +30,17 @@ public class Dashboard {
         moveToTransfer(btnTransfer);
 
         JButton btnBeliPulsa = new JButton("Beli pulsa");
-        moveToBeliPulsa(btnBeliPulsa);
-
+        moveToBeliPulsa(btnTransfer);
         JButton btnTopUpSaldo = new JButton("Top up saldo");
         moveToTopUpSaldo(btnTopUpSaldo);
-
+        JButton btnHistory = new JButton("History");
         JButton btnLogout = new JButton("Logout");
-        logout(btnLogout);
 
-        wrapPilihan.setLayout( new GridLayout(1, 3) );
         wrapPilihan.add(btnTransfer);
         wrapPilihan.add(btnBeliPulsa);
         wrapPilihan.add(btnTopUpSaldo);
+        wrapPilihan.add(btnHistory);
+        wrapPilihan.add(btnLogout);
 
         container.add(username);
         container.add(saldo);

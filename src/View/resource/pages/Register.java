@@ -1,5 +1,8 @@
 package View.resource.pages;
 
+import Config.Instance;
+import Controller.UserController;
+import Model.User;
 import View.ViewFactory;
 import View.resource.component.Button;
 import View.resource.component.Image;
@@ -25,7 +28,7 @@ public class Register{
         moveToLogin( btnMoveToLogin );
 
         JButton btnRegister = Button.btn("Register", 233, 233, 233);
-
+        register(btnRegister);
 //        JLabel fotoProfilLabel = Image.img();
 
 
@@ -52,14 +55,18 @@ public class Register{
 
     private void register(JButton btn){
         btn.addActionListener((event) -> {
-            // nilai username
-            Input.getInputValue(username);
+            String usernameTxt = Input.getInputValue(username);
+            String passwordTxt = Input.getInputValue(password);
+            String emailTxt = Input.getInputValue(email);
+            User user = new User("",usernameTxt,passwordTxt,emailTxt);
 
-            // nilai password
-            Input.getInputValue(password);
+            try {
+                ((UserController) Instance.getInstance().getController("UserController")).register(user);
+                JOptionPane.showMessageDialog(null, "Akun berhasil dibuat!");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage());
+            }
 
-            // nilai email
-            Input.getInputValue(email);
         });
     }
 

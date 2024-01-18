@@ -3,6 +3,8 @@ package Model;
 import java.util.ArrayList;
 
 public class User {
+
+    private String nomor;
     private String username;
     private String email;
     private String password;
@@ -11,14 +13,22 @@ public class User {
     private long balance;
     private ArrayList<Transaction> transactions;
 
-    public User(String username, String email, String password) {
+    public User(String nomor, String username, String email, String password) {
+        this.nomor = nomor;
         this.username = username;
         this.email = email;
         this.password = password;
         this.setStatus(false);
         transactions = new ArrayList<>();
         //make balance to 10000 for testing
-        this.setBalance(100000);
+        this.setBalance(0);
+    }
+    public String getNomor() {
+        return nomor;
+    }
+
+    public void setNomor(String nomor) {
+        this.nomor = nomor;
     }
 
     public String getUsername() {
@@ -74,8 +84,8 @@ public class User {
     }
 
     public void addTransaction(TypeTransaction typeTransaction,long total) {
-        Transaction transaction = new Transaction();
-        transaction.setId(System.currentTimeMillis());
+
+        Transaction transaction = new Transaction(transactions.size()+1);
         transaction.setUser(this);
         transaction.setTotal(total);
         transactions.add(transaction);

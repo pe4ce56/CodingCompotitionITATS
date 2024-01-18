@@ -1,5 +1,7 @@
 package View.resource.pages;
 
+import Config.Instance;
+import Controller.UserController;
 import View.ViewFactory;
 import View.resource.component.Button;
 import View.resource.component.Image;
@@ -9,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Login{
+
     private JPanel username;
     private JPanel password;
 
@@ -50,13 +53,18 @@ public class Login{
 
     private void login(JButton btn){
         btn.addActionListener((event) -> {
-//            new ViewFactory().createView("dashboard");
+            try {
+                String usernameTxt = Input.getInputValue(username);
+                String passwordTxt = Input.getInputValue(password);
 
-            // nilai username
-            System.out.println( Input.getInputValue(username) );
+                if(((UserController)Instance.getInstance().getController("UserController")).login(usernameTxt,passwordTxt))
+                    new ViewFactory().createView("dashboard");
+                else
+                    JOptionPane.showMessageDialog(null, "Wrong username/password!");
 
-            // nilai password
-            System.out.println( Input.getInputValue(password) );
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 }

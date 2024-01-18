@@ -26,7 +26,6 @@ public class History {
     private void Request(JButton btn){
         btn.addActionListener((event) -> {
 //            new ViewFactory().createView("dashboard");
-
         });
     }
 
