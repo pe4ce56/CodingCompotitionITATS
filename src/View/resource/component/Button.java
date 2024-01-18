@@ -6,10 +6,10 @@ import java.awt.*;
 public class Button {
     public static JButton btn(){
 
-        JButton redButton = new JButton("Click Me");
-        redButton.setPreferredSize(new Dimension(80, 80));
-        redButton.setBackground(Color.ORANGE);
+        JButton btn = new JButton("Click Me aygaygyguyyyyyyyyyyyyyyyyyy");
 
-        return redButton;
+        btn.setBackground(Color.ORANGE);
+
+        return btn;
     }
 }

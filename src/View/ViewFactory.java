@@ -3,20 +3,18 @@ package View;
 import View.publc.Index;
 import View.resource.pages.*;
 
-import javax.swing.*;
 
 public class ViewFactory {
-    private Index index;
+    private Index frame;
 
     public ViewFactory() {
-        index = Index.getInstance();
+        frame = Index.getInstance();
     }
 
     public void createView(String page){
 
         // Index = container / frame
-
-        if( page.equals("register") ) index.setComponent( new Register().getComponent() );
-        else if( page.equals("dashboard") ) index.setComponent( new Dashboard().getComponent() );
+        if( page.equals("register") ) frame.setContainer( new Register().getContainer() );
+        else if( page.equals("dashboard") ) frame.setContainer( new Dashboard().getContainer() );
     }
 }

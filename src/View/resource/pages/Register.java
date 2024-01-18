@@ -2,27 +2,29 @@ package View.resource.pages;
 
 import View.ViewFactory;
 import View.resource.component.Button;
-import View.resource.layout.MainFrame;
+import View.resource.component.Image;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
-public class Register extends MainFrame {
-    public JPanel getComponent(){
+public class Register{
+    public JPanel getContainer(){
+        JPanel jPanel = new JPanel( new GridBagLayout() );
 
-        JPanel bluePanel = new JPanel();
-        bluePanel.setPreferredSize(new Dimension(50, 50));
-        bluePanel.setBackground(Color.BLUE);
+//        JPanel jPanel = new JPanel( new GridBagLayout() );
+        jPanel.setBackground( new Color(223, 223, 223));
 
-        JButton btn = Button.btn();
-        d(btn);
+//        JButton btn = Button.btn();
+//        d(btn);
 
-        // Mengatur layout manager dan menambahkan tombol ke panel
-        bluePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0)); // Center alignment
-        bluePanel.add(btn);
+        JLabel fotoProfilLabel = Image.img();
 
-        return bluePanel;
+        jPanel.add(fotoProfilLabel);
+
+//        jPanel.add( btn, Utils.getGbc() );
+
+
+        return jPanel;
     }
 
     private void d(JButton btn){

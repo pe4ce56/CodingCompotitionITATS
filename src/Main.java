@@ -2,9 +2,7 @@ import View.ViewFactory;
 
 public class Main {
 
-    // Iki main e tak langsung nak view mergane nek nak controller sek nggaiso
-    // Mergane controller ora nyeluk view
-    // Anggep ae backend e wes di hosting disik i unu
+    // Eh iki sawangane isok di akses nak controller, index e tak kei instance ben frame e mek siji
 
     public static void main(String[] args) {
         new ViewFactory().createView("register");
