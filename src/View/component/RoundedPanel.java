@@ -1,18 +1,10 @@
+package View.component;
+
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.RoundRectangle2D;
-
-@FunctionalInterface
-interface Callback {
-
-    public static final int MOUSEENTER = 1;
-    public static final int MOUSEEXITED = 2;
-
-    void onHover(int result);
-}
 
 public class RoundedPanel extends JPanel {
 
@@ -75,6 +67,7 @@ public class RoundedPanel extends JPanel {
     public void setOnClick(Runnable r){
         this.onClick = r;
     }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
