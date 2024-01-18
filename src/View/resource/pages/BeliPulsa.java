@@ -21,7 +21,7 @@ public class BeliPulsa {
         JButton btnBeliPulsa = Button.btn("BeliPulsa", 233, 233, 233);
         BeliPulsa(btnBeliPulsa);
 
-        JButton btnBack = Button.btn("Logout", 233, 233, 233);
+        JButton btnBack = Button.btn("back", 233, 233, 233);
         back(btnBack);
 
         form.setLayout( new GridLayout(3, 1) );

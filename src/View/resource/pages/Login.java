@@ -39,9 +39,6 @@ public class Login{
 
         form.add(wrapBtn);
 
-//        jPanel.add( btn, Utils.getGbc() );
-
-
         return form;
     }
 

@@ -30,11 +30,12 @@ public class Dashboard {
         moveToTransfer(btnTransfer);
 
         JButton btnBeliPulsa = new JButton("Beli pulsa");
-        moveToBeliPulsa(btnTransfer);
+        moveToBeliPulsa(btnBeliPulsa);
         JButton btnTopUpSaldo = new JButton("Top up saldo");
         moveToTopUpSaldo(btnTopUpSaldo);
         JButton btnHistory = new JButton("History");
         JButton btnLogout = new JButton("Logout");
+        logout(btnLogout);
 
         wrapPilihan.add(btnTransfer);
         wrapPilihan.add(btnBeliPulsa);
