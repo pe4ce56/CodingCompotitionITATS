@@ -4,7 +4,7 @@ import Model.Transaction;
 import Model.TypeTransaction;
 import Model.TypeTransactions.Pulsa;
 import Model.TypeTransactions.Topup;
-import Model.TypeTransactions.Transfer;
+import Model.TypeTransactions.TransferBalance;
 import Model.User;
 import Service.TransactionService;
 import Service.UserService;
@@ -19,7 +19,7 @@ public class TransactionController {
     }
 
     public boolean transaction(TypeTransaction typeTransaction){
-        if (typeTransaction instanceof Transfer transfer) {
+        if (typeTransaction instanceof TransferBalance transfer) {
             if(userService.getUserActive() == null || transfer.getRecipient() == null) return false;
             if(userService.getUserActive().getBalance() < transfer.getAmount()) return false;
             transfer.setSender(userService.getUserActive());
