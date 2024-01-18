@@ -40,9 +40,27 @@ public class Dashboard {
         return container;
     }
 
-    private void moveToRegister(JButton btn){
+    private void moveToTransfer(JButton btn){
         btn.addActionListener((event) -> {
-            new ViewFactory().createView("register");
+            new ViewFactory().createView("transfer");
+        });
+    }
+
+    private void moveToBeliPulsa(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("beliPulsa");
+        });
+    }
+
+    private void moveToTopUpSaldo(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("topUpSaldo");
+        });
+    }
+
+    private void logout(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("login");
         });
     }
 }

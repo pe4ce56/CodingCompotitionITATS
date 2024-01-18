@@ -17,9 +17,9 @@ public class Register{
         JPanel form = new JPanel( new GridBagLayout() );
         form.setBackground( new Color(223, 223, 223));
 
-        username = Input.input("Username : ", "username");
+        username = Input.input("Username : ", "text");
         password = Input.input("Password : ", "password");
-        email = Input.input("Email : ", "email");
+        email = Input.input("Email : ", "text");
 
         JButton btnMoveToLogin = Button.btn("sudah punya akun?", 233, 233, 233);
         moveToLogin( btnMoveToLogin );
