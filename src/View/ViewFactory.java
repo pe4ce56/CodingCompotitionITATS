@@ -14,9 +14,8 @@ public class ViewFactory {
     public void createView(String page){
 
         // Index = container / frame
-        if( page.equals("auth") ) frame.setContainer( new Auth().getContainer() );
-
-//        if( page.equals("register") ) frame.setContainer( new Register().getContainer() );
+        if( page.equals("login") ) frame.setContainer( new Login().getContainer() );
+        else if( page.equals("register") ) frame.setContainer( new Register().getContainer() );
         else if( page.equals("dashboard") ) frame.setContainer( new Dashboard().getContainer() );
     }
 }
