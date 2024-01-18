@@ -1,4 +1,4 @@
-package View.layout;
+package View.resource.layout;
 
 import javax.swing.*;
 import java.awt.*;

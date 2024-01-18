@@ -1,4 +1,4 @@
-package View.component;
+package View.resource.component;
 
 import java.awt.Component;
 import java.awt.Container;

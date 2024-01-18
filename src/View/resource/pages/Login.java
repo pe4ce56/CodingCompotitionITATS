@@ -1,7 +1,8 @@
-package View.component.pages;
+package View.resource.pages;
 
-import View.component.*;
-import View.component.RoundedPanel;
+import View.resource.component.RoundedPanel;
+import View.resource.component.Callback;
+import View.resource.component.FlexBoxLayoutManager;
 
 import javax.swing.*;
 import java.awt.*;

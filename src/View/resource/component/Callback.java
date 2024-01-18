@@ -1,4 +1,4 @@
-package View.component;
+package View.resource.component;
 
 @FunctionalInterface
 public interface Callback {

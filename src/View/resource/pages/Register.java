@@ -1,6 +1,6 @@
-package View.component.pages;
+package View.resource.pages;
 
-import View.layout.MainFrame;
+import View.resource.layout.MainFrame;
 
 public class Register extends MainFrame {
     public void view(){

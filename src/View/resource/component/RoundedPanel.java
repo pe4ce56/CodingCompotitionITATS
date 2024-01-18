@@ -1,4 +1,6 @@
-package View.component;
+package View.resource.component;
+
+import View.resource.component.Callback;
 
 import javax.swing.*;
 import java.awt.*;
