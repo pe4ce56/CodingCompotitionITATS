@@ -31,8 +31,6 @@ public class Register{
         register(btnRegister);
 //        JLabel fotoProfilLabel = Image.img();
 
-
-
         form.setLayout( new GridLayout(3, 1) );
         form.add(username);
         form.add(password);
@@ -44,11 +42,7 @@ public class Register{
 
         form.add(wrapBtn);
 
-
-
-
 //        jPanel.add( btn, Utils.getGbc() );
-
 
         return form;
     }
