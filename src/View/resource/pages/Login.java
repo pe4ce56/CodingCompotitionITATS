@@ -9,12 +9,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Login{
+    private JPanel username;
+    private JPanel password;
+
     public JPanel getContainer(){
         JPanel form = new JPanel( new GridBagLayout() );
         form.setBackground( new Color(223, 223, 223));
 
-        JPanel username = Input.input("Username : ", "username");
-        JPanel password = Input.input("Password : ", "password");
+        username = Input.input("Username : ", "username");
+        password = Input.input("Password : ", "password");
 
         JButton btnMoveToRegister = Button.btn("belum punya akun?", 233, 233, 233);
         moveToRegister( btnMoveToRegister );
@@ -47,7 +50,13 @@ public class Login{
 
     private void login(JButton btn){
         btn.addActionListener((event) -> {
-            new ViewFactory().createView("dashboard");
+//            new ViewFactory().createView("dashboard");
+
+            // nilai username
+            Input.getInputValue(username);
+
+            // nilai password
+            Input.getInputValue(password);
         });
     }
 }

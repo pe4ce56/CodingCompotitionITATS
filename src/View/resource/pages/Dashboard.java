@@ -1,5 +1,7 @@
 package View.resource.pages;
 
+import View.ViewFactory;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -36,6 +38,12 @@ public class Dashboard {
         container.add(wrapPilihan);
 
         return container;
+    }
+
+    private void moveToRegister(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("register");
+        });
     }
 }
 
