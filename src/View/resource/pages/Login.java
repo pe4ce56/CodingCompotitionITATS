@@ -19,7 +19,7 @@ public class Login{
         JPanel form = new JPanel( new GridBagLayout() );
         form.setBackground( new Color(223, 223, 223));
 
-        username = Input.input("Username : ", "username");
+        username = Input.input("Username : ", "text");
         password = Input.input("Password : ", "password");
 
         JButton btnMoveToRegister = Button.btn("belum punya akun?", 233, 233, 233);
@@ -54,7 +54,6 @@ public class Login{
     private void login(JButton btn){
         btn.addActionListener((event) -> {
             try {
-
                 String usernameTxt = Input.getInputValue(username);
                 String passwordTxt = Input.getInputValue(password);
 

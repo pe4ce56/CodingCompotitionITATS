@@ -22,17 +22,24 @@ public class Dashboard {
 
         JPanel wrapPilihan = new JPanel( new GridBagLayout() );
 
+        wrapPilihan.setLayout( new GridLayout(1, 5) );
         // set margin
 //        divLeft.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         JButton btnTransfer = new JButton("Transfer");
+        moveToTransfer(btnTransfer);
         JButton btnBeliPulsa = new JButton("Beli pulsa");
+        moveToBeliPulsa(btnTransfer);
         JButton btnTopUpSaldo = new JButton("Top up saldo");
+        moveToTopUpSaldo(btnTopUpSaldo);
+        JButton btnHistory = new JButton("History");
+        JButton btnLogout = new JButton("Logout");
 
-        wrapPilihan.setLayout( new GridLayout(1, 3) );
         wrapPilihan.add(btnTransfer);
         wrapPilihan.add(btnBeliPulsa);
         wrapPilihan.add(btnTopUpSaldo);
+        wrapPilihan.add(btnHistory);
+        wrapPilihan.add(btnLogout);
 
         container.add(username);
         container.add(saldo);
@@ -41,9 +48,27 @@ public class Dashboard {
         return container;
     }
 
-    private void moveToRegister(JButton btn){
+    private void moveToTransfer(JButton btn){
         btn.addActionListener((event) -> {
-            new ViewFactory().createView("register");
+            new ViewFactory().createView("transfer");
+        });
+    }
+
+    private void moveToBeliPulsa(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("beliPulsa");
+        });
+    }
+
+    private void moveToTopUpSaldo(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("topUpSaldo");
+        });
+    }
+
+    private void logout(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("login");
         });
     }
 }

@@ -15,12 +15,4 @@ public class Utils {
 
         return dimensions;
     }
-
-//    public static GridBagConstraints getGbc(){
-//        GridBagConstraints gbc = new GridBagConstraints();
-//        gbc.gridx = 0;
-//        gbc.gridy = 0;
-//
-//        return gbc;
-//    }
 }
