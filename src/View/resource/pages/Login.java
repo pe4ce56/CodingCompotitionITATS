@@ -12,14 +12,15 @@ import java.awt.*;
 
 public class Login{
 
-    private JTextField username;
-    private JPasswordField password;
+    private JPanel username;
+    private JPanel password;
+
     public JPanel getContainer(){
         JPanel form = new JPanel( new GridBagLayout() );
         form.setBackground( new Color(223, 223, 223));
 
-        username = new JTextField();
-        password = new JPasswordField();
+        username = Input.input("Username : ", "username");
+        password = Input.input("Password : ", "password");
 
         JButton btnMoveToRegister = Button.btn("belum punya akun?", 233, 233, 233);
         moveToRegister( btnMoveToRegister );
@@ -53,7 +54,11 @@ public class Login{
     private void login(JButton btn){
         btn.addActionListener((event) -> {
             try {
-                if(((UserController)Instance.getInstance().getController("UserController")).login(username.getText(),new String(password.getPassword())))
+
+                String usernameTxt = Input.getInputValue(username);
+                String passwordTxt = Input.getInputValue(password);
+
+                if(((UserController)Instance.getInstance().getController("UserController")).login(usernameTxt,passwordTxt))
                     new ViewFactory().createView("dashboard");
                 else
                     JOptionPane.showMessageDialog(null, "Wrong username/password!");

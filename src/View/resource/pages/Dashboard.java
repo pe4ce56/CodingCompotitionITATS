@@ -1,5 +1,8 @@
 package View.resource.pages;
 
+import Service.UserService;
+import View.ViewFactory;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,8 +17,8 @@ public class Dashboard {
 
         container.setLayout( new GridLayout(3, 1) );
 
-        JLabel username = new JLabel("Username : Masih kosong" );
-        JLabel saldo = new JLabel("Saldo : 000000");
+        JLabel username = new JLabel("Username : " + UserService.getInstance().getUserActive().getUsername());
+        JLabel saldo = new JLabel("Saldo : " + UserService.getInstance().getUserActive().getBalance());
 
         JPanel wrapPilihan = new JPanel( new GridBagLayout() );
 
@@ -36,6 +39,12 @@ public class Dashboard {
         container.add(wrapPilihan);
 
         return container;
+    }
+
+    private void moveToRegister(JButton btn){
+        btn.addActionListener((event) -> {
+            new ViewFactory().createView("register");
+        });
     }
 }
 

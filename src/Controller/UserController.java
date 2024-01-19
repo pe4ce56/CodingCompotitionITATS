@@ -29,8 +29,6 @@ public class UserController {
 
     public boolean login(String username, String password){
         for(User user: userService.getUsers()){
-            System.out.println(username + password);
-            System.out.println(user.getUsername() + user.getPassword());
             if(user.getUsername().equals( username) && Objects.equals(user.getPassword(), hash(password))){
                 userService.setUserActive(user);
                 return true;
@@ -42,10 +40,20 @@ public class UserController {
 
     }
 
-    public boolean register(User user){
-        user.setPassword(hash(user.getPassword()));
-        userService.addUser(user);
-        return true;
+    public void register(User newUser) throws Exception {
+//        checking unique property
+        for(User user: userService.getUsers()) {
+            if(user.getEmail().equals(newUser.getEmail())){
+                throw new Exception("email has been used.");
+            }
+            if(user.getUsername().equals(newUser.getUsername())){
+                throw new Exception("username has been used.");
+            }
+        }
+
+        newUser.setPassword(hash(newUser.getPassword()));
+
+        userService.addUser(newUser);
     }
 
     private String hash(String input) {
