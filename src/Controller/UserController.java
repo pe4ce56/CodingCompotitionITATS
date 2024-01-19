@@ -37,7 +37,6 @@ public class UserController {
         return false;
     }
     public void register(){
-
     }
 
     public void register(User newUser) throws Exception {

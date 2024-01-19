@@ -46,12 +46,11 @@ public class TopUpSaldo {
     private void TopUpSaldo(JButton btn){
         btn.addActionListener((event) -> {
             long txtjumlah = Long.parseLong(Input.getInputValue(jumlah));
-           Topup topup = new Topup(Topup.INDOMART, txtjumlah);
+            Topup topup = new Topup(Topup.INDOMART, txtjumlah);
 
             try {
                 TransactionController transactionController = (TransactionController) Instance.getInstance().getController("TransactionController");
                 transactionController.transaction(topup);
-
 
                 JOptionPane.showMessageDialog(null, "Top berhasil dibuat!");
 

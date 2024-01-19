@@ -3,7 +3,7 @@ package View;
 import Config.Instance;
 import Controller.TransactionController;
 import Controller.UserController;
-import Model.TypeTransactions.Transfer;
+import Model.TypeTransactions.TransferBalance;
 import Service.UserService;
 
 import javax.swing.*;
@@ -23,8 +23,8 @@ public class LoginViewTesting {
                     System.out.println("LOGIN berhasil");
 
                     TransactionController transactionController = (TransactionController) Instance.getInstance().getController("TransactionController");
-                    transactionController.transaction(new Transfer(UserService.getInstance().getUsers().get(0),10000));
-                    transactionController.transaction(new Transfer(UserService.getInstance().getUsers().get(0),10000));
+                    transactionController.transaction(new TransferBalance(UserService.getInstance().getUsers().get(0),10000));
+                    transactionController.transaction(new TransferBalance(UserService.getInstance().getUsers().get(0),10000));
 
                 }else{
                     System.out.println("LOGIN SALAH");

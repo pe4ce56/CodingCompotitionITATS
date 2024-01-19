@@ -3,7 +3,7 @@ package Model.TypeTransactions;
 import Model.TypeTransaction;
 import Model.User;
 
-public class Transfer extends TypeTransaction {
+public class TransferBalance extends TypeTransaction {
     private long amount;
     private User recipient;
 
@@ -16,7 +16,7 @@ public class Transfer extends TypeTransaction {
     }
 
     private User sender;
-    public Transfer(User recipient, long amount){
+    public TransferBalance(User recipient, long amount){
         setAdminFee(0);
         setAmount(amount);
         setRecipient(recipient);

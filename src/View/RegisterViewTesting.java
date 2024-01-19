@@ -1,11 +1,5 @@
 package View;
 
-import Config.Instance;
-import Controller.TransactionController;
-import Controller.UserController;
-import Model.TypeTransactions.Transfer;
-import Service.UserService;
-
 import javax.swing.*;
 import java.awt.*;
 

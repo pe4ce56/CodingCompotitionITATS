@@ -1,5 +1,10 @@
 package View.resource.pages;
-
+import Config.Instance;
+import Controller.TransactionController;
+import Model.TypeTransaction;
+import Model.TypeTransactions.TransferBalance;
+import Model.User;
+import Service.UserService;
 import View.ViewFactory;
 import View.resource.component.Button;
 import View.resource.component.Input;
@@ -10,7 +15,6 @@ import java.awt.*;
 public class Transfer {
     private JPanel username;
     private JPanel jumlah;
-
 
     public JPanel getContainer(){
         JPanel form = new JPanel( new GridBagLayout() );
@@ -37,10 +41,27 @@ public class Transfer {
 
     private void Transfer(JButton btn){
         btn.addActionListener((event) -> {
-//            new ViewFactory().createView("dashboard");
+            boolean found = false;
+            for(User user : UserService.getInstance().getUsers()){
+                if(user.getUsername().equals(Input.getInputValue(username))){
+                    try {
 
-            // nilai password
-            System.out.println( Input.getInputValue(jumlah) );
+                        TransferBalance transferBalance = new TransferBalance(user, Long.parseLong(Input.getInputValue(jumlah)));
+
+                        TransactionController transactionController = (TransactionController) Instance.getInstance().getController("TransactionController");
+                        transactionController.transaction(transferBalance);
+
+                        JOptionPane.showMessageDialog(null, "Transfer berhasil!");
+                        found =  true;
+                        break;
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+            if(!found)
+                JOptionPane.showMessageDialog(null, "User tidak ditemukan!");
         });
     }
 
