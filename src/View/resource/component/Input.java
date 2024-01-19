@@ -8,7 +8,6 @@
 
             JPanel form = new JPanel( new GridBagLayout() );
 
-            form.setBounds(100,100,500,500);
             JLabel label = new JLabel(teksLabel);
 
             JComponent input;

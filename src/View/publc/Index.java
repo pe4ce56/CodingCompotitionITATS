@@ -32,7 +32,7 @@ public class Index {
     public void setContainer(JPanel component) {
         frame.getContentPane().removeAll(); // Menghapus konten sebelumnya
         frame.add(component, BorderLayout.CENTER);
-        frame.revalidate(); // Me-revalidate frame untuk menampilkan perubahan
+//        frame.revalidate(); // Me-revalidate frame untuk menampilkan perubahan
         frame.repaint(); // Me-repaint frame untuk menghindari artefak render
         frame.setVisible(true);
     }
