@@ -29,7 +29,9 @@ public class UserController {
 
     public boolean login(String username, String password){
         for(User user: userService.getUsers()){
-            if(user.getUsername().equals( username) && Objects.equals(hash(password), hash(password))){
+            System.out.println(username + password);
+            System.out.println(user.getUsername() + user.getPassword());
+            if(user.getUsername().equals( username) && Objects.equals(user.getPassword(), hash(password))){
                 userService.setUserActive(user);
                 return true;
             }

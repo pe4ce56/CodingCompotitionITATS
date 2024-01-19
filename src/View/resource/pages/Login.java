@@ -1,5 +1,7 @@
 package View.resource.pages;
 
+import Config.Instance;
+import Controller.UserController;
 import View.ViewFactory;
 import View.resource.component.Button;
 import View.resource.component.Image;
@@ -9,12 +11,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Login{
+
+    private JTextField username;
+    private JPasswordField password;
     public JPanel getContainer(){
         JPanel form = new JPanel( new GridBagLayout() );
         form.setBackground( new Color(223, 223, 223));
 
-        JPanel username = Input.input("Username : ", "username");
-        JPanel password = Input.input("Password : ", "password");
+        username = new JTextField();
+        password = new JPasswordField();
 
         JButton btnMoveToRegister = Button.btn("belum punya akun?", 233, 233, 233);
         moveToRegister( btnMoveToRegister );
@@ -47,7 +52,15 @@ public class Login{
 
     private void login(JButton btn){
         btn.addActionListener((event) -> {
-            new ViewFactory().createView("dashboard");
+            try {
+                if(((UserController)Instance.getInstance().getController("UserController")).login(username.getText(),new String(password.getPassword())))
+                    new ViewFactory().createView("dashboard");
+                else
+                    JOptionPane.showMessageDialog(null, "Wrong username/password!");
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 }

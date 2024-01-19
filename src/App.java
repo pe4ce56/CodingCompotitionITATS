@@ -30,29 +30,30 @@ public class App {
             /*
                 Testing fitur
              */
-            userController.register(new User("+6285211119377","damai","damai@gmail.com","damai"));
-            userController.register(new User("+6285211119377","deo","deo@gmail.com","deo"));
+            userController.register(new User("+6285211119377", "damai", "damai@gmail.com", "damai"));
+            userController.register(new User("+6285211119377", "deo", "deo@gmail.com", "deo"));
 
             userController.login();
-            userController.login("damai","damai");
+            userController.login("damai", "damai");
 
             TransactionController transactionController = (TransactionController) app.getController("TransactionController");
 
-            transactionController.transaction(new Topup(Topup.INDOMART,50000));
-            transactionController.transaction(new Transfer(UserService.getInstance().getUsers().get(1),10000));
-            transactionController.transaction(new Transfer(UserService.getInstance().getUsers().get(1),10000));
-            transactionController.transaction(new Pulsa("085211119377",10000));
+            transactionController.transaction(new Topup(Topup.INDOMART, 50000));
+            transactionController.transaction(new Transfer(UserService.getInstance().getUsers().get(1), 10000));
+            transactionController.transaction(new Transfer(UserService.getInstance().getUsers().get(1), 10000));
+            transactionController.transaction(new Pulsa("085211119377", 10000));
 
             /*
                END Testing fitur
              */
 
+            new ViewFactory().createView("login");
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+
+
     }
-
-
-
 
 }
