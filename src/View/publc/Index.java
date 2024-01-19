@@ -16,7 +16,7 @@ public class Index {
 //        frame.setLayout(new FlowLayout(FlowLayout.CENTER));
         frame.setLayout(new BorderLayout());
 
-        HashMap<String, Integer> size = Utils.getSizeOfScreen(0.90);
+        HashMap<String, Integer> size = Utils.getSizeOfScreen(0.40);
 
         frame.setSize( size.get("width"), size.get("height") );
         frame.setLocationRelativeTo(null);

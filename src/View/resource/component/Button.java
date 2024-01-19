@@ -10,6 +10,8 @@ public class Button {
 
         btn.setBackground( new Color(r, g, b) );
 
+        btn.setFocusPainted(false);
+
         return btn;
     }
 }
