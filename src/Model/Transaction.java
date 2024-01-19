@@ -6,6 +6,13 @@ public class Transaction {
     private long total;
     private User user;
 
+    public Transaction(int index){
+        String result = "" + System.currentTimeMillis() + index;
+
+        this.id = Long.parseLong(result);
+    }
+
+
     public long getId() {
         return id;
     }

@@ -17,7 +17,7 @@ public class Transfer extends TypeTransaction {
 
     private User sender;
     public Transfer(User recipient, long amount){
-        setAdminFee(500);
+        setAdminFee(0);
         setAmount(amount);
         setRecipient(recipient);
     }
@@ -29,7 +29,6 @@ public class Transfer extends TypeTransaction {
     public void setAmount(long amount) {
         this.amount = amount;
     }
-
 
     public User getRecipient() {
         return recipient;

@@ -5,6 +5,7 @@ import Model.User;
 import Service.UserService;
 import View.LoginViewTesting;
 import View.RegisterViewTesting;
+import View.ViewFactory;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,9 +21,7 @@ public class UserController {
 
     public void login(){
         try {
-            LoginViewTesting registerViewTesting = (LoginViewTesting) Instance.getInstance().getView("LoginViewTesting");
 
-            registerViewTesting.index();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
